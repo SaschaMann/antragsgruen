@@ -1,6 +1,19 @@
 <?php
 
 return [
+    'conflicts_title' => 'Check amendment conflicts',
+    'conflicts_enable' => 'Enable amendment conflict checker',
+    'conflicts_intro' => 'Compare selected amendments to prepare the debate order. Only the amendments’ own texts are checked, independently of proposed procedures. Text conflicts do not determine political incompatibility or the debate order.',
+    'conflicts_performance' => 'Select at most 50 amendments for one check; try smaller groups if the text is long or conflicts are dense. Large results can take longer to load. Readers can only check amendments they are permitted to see.',
+    'conflicts_too_many' => 'Select no more than 50 amendments at a time.',
+    'conflicts_check' => 'Check selected amendments',
+    'conflicts_no_amendments' => 'No eligible amendments are available.',
+    'conflicts_select_two' => 'Select at least two amendments.',
+    'conflicts_invalid' => 'The amendment selection is invalid or no longer available.',
+    'conflicts_results' => 'Conflict results',
+    'conflicts_incomplete' => '%AMEND%: these sections could not be fully checked (unsupported content, incompatible baseline, or a comparison error): %SECTIONS%.',
+    'conflicts_none' => 'No text conflicts were detected in the sections that were checked.',
+    'conflicts_details' => 'Show conflicting passages',
     'Start a Motion'                => 'Start a motion',
     'Edit Motion'                   => 'Edit motion',
     'Confirm Motion'                => 'Confirm motion',

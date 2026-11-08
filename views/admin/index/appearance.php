@@ -214,6 +214,8 @@ $handledSiteSettings = [];
             <?php
             $boolSettingRow($settings, 'documentPage', $handledSettings, Yii::t('admin', 'con_document_page'));
             $boolSettingRow($settings, 'votingPage', $handledSettings, Yii::t('admin', 'con_voting_page'));
+            $boolSettingRow($settings, 'amendmentConflictCheckEnabled', $handledSettings, Yii::t('motion', 'conflicts_enable'));
+            echo '<p class="help-block">' . Html::encode(Yii::t('motion', 'conflicts_performance')) . '</p>';
             $boolSettingRow($settings, 'hasCurrentlyDebated', $handledSettings, Yii::t('admin', 'con_currently_debated'));
             ?>
 

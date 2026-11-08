@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\components\RequestContext;
+use app\components\diff\AmendmentConflictChecker;
 use app\components\UrlHelper;
 use app\models\db\{Amendment,
     ConsultationLog,
@@ -87,6 +88,55 @@ class MotionController extends Base
         $motionViewParams['supportStatus'] = MotionSupporter::getCurrUserSupportStatus($motion);
 
         return new HtmlResponse($this->render('view', $motionViewParams));
+    }
+
+    public function actionAmendmentConflicts(string $motionSlug): ResponseInterface
+    {
+        if (!$this->consultation->getSettings()->amendmentConflictCheckEnabled) {
+            return new HtmlErrorResponse(404, \Yii::t('motion', 'err_not_found'));
+        }
+        $motion = $this->getMotionWithCheck($motionSlug);
+        if (!AmendmentConflictChecker::canRead($motion)) {
+            return new HtmlErrorResponse(404, \Yii::t('motion', 'err_not_found'));
+        }
+        $this->motion = $motion;
+        $this->layout = 'column2';
+        $this->layoutParams->robotsNoindex = true;
+        $amendments = AmendmentConflictChecker::eligibleAmendments($motion);
+        $selectedIds = [];
+        $result = null;
+        $error = null;
+        if ($this->getHttpRequest()->isPost) {
+            $submitted = $this->getHttpRequest()->post('amendments', []);
+            $eligibleIds = array_map(static fn (Amendment $amendment): int => (int)$amendment->id, $amendments);
+            if (!is_array($submitted)) {
+                return new HtmlErrorResponse(400, \Yii::t('motion', 'conflicts_invalid'));
+            }
+            foreach ($submitted as $id) {
+                if (!is_scalar($id) || !ctype_digit((string)$id) || !in_array((int)$id, $eligibleIds, true)) {
+                    return new HtmlErrorResponse(400, \Yii::t('motion', 'conflicts_invalid'));
+                }
+                $selectedIds[] = (int)$id;
+            }
+            $selectedIds = array_values(array_unique($selectedIds));
+            if (count($selectedIds) < 2) {
+                $error = \Yii::t('motion', 'conflicts_select_two');
+            } elseif (count($selectedIds) > AmendmentConflictChecker::MAX_SELECTED) {
+                $error = \Yii::t('motion', 'conflicts_too_many');
+            } else {
+                $selected = array_values(array_filter($amendments, static fn (Amendment $amendment): bool => in_array($amendment->id, $selectedIds, true)));
+                $result = AmendmentConflictChecker::compare(
+                    AmendmentConflictChecker::snapshot($selected)
+                );
+            }
+        } else {
+            foreach ($amendments as $amendment) {
+                if (AmendmentConflictChecker::selectedByDefault($amendment)) {
+                    $selectedIds[] = $amendment->id;
+                }
+            }
+        }
+        return new HtmlResponse($this->render('amendment_conflicts', compact('motion', 'amendments', 'selectedIds', 'result', 'error')));
     }
 
     private function getOpenedComments(Motion $motion, int $commentId): array

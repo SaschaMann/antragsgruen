@@ -1,6 +1,19 @@
 <?php
 
 return [
+    'conflicts_title' => 'Änderungsanträge auf Konflikte prüfen',
+    'conflicts_enable' => 'Konfliktprüfung für Änderungsanträge aktivieren',
+    'conflicts_intro' => 'Ausgewählte Änderungsanträge vergleichen, um die Debattenreihenfolge vorzubereiten. Geprüft werden nur die eigenen Texte der Änderungsanträge, unabhängig von Verfahrensvorschlägen. Textkonflikte bestimmen weder politische Unvereinbarkeit noch die Debattenreihenfolge.',
+    'conflicts_performance' => 'Pro Prüfung höchstens 50 Änderungsanträge auswählen; bei langen Texten oder vielen Konflikten kleinere Gruppen bilden. Große Ergebnisse können länger zum Laden brauchen. Lesende können nur Änderungsanträge prüfen, die sie sehen dürfen.',
+    'conflicts_too_many' => 'Bitte höchstens 50 Änderungsanträge gleichzeitig auswählen.',
+    'conflicts_check' => 'Ausgewählte Änderungsanträge prüfen',
+    'conflicts_no_amendments' => 'Keine geeigneten Änderungsanträge verfügbar.',
+    'conflicts_select_two' => 'Mindestens zwei Änderungsanträge auswählen.',
+    'conflicts_invalid' => 'Die Auswahl ist ungültig oder nicht mehr verfügbar.',
+    'conflicts_results' => 'Ergebnisse der Konfliktprüfung',
+    'conflicts_incomplete' => '%AMEND%: Diese Abschnitte konnten nicht vollständig geprüft werden (nicht unterstützte Inhalte, unterschiedliche Ausgangstexte oder ein Vergleichsfehler): %SECTIONS%.',
+    'conflicts_none' => 'In den geprüften Abschnitten wurden keine Textkonflikte gefunden.',
+    'conflicts_details' => 'Konfliktstellen anzeigen',
     'Start a Motion'                     => 'Antrag stellen',
     'Edit Motion'                        => 'Antrag bearbeiten',
     'Confirm Motion'                     => 'Antrag bestätigen',

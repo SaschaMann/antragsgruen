@@ -76,6 +76,22 @@ class AmendmentRewriter
         $wordsNewMotion = $diff->compareHtmlParagraphsToWordArray([$motionOldPara], [$motionNewPara]);
         $wordsAmendment = $diff->compareHtmlParagraphsToWordArray([$motionOldPara], [$amendmentPara]);
 
+        return self::mergeWordArrays($wordsNewMotion, $wordsAmendment);
+    }
+
+    /**
+     * Merge prepared diffs using the same rules as createMerge(). Input objects are copied because
+     * insertion alignment mutates them; callers may safely reuse prepared diffs across comparisons.
+     *
+     * @param DiffWord[][] $wordsNewMotion
+     * @param DiffWord[][] $wordsAmendment
+     */
+    public static function mergeWordArrays(array $wordsNewMotion, array $wordsAmendment): string
+    {
+        $copy = static fn (array $row): array => array_map(static fn (DiffWord $word): DiffWord => clone $word, $row);
+        $wordsNewMotion = array_map($copy, $wordsNewMotion);
+        $wordsAmendment = array_map($copy, $wordsAmendment);
+
         if (count($wordsNewMotion) !== count($wordsAmendment)) {
             throw new Internal('canRewrite: word arrays are inconsistent');
         }

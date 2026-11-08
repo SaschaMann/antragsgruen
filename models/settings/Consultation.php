@@ -53,6 +53,7 @@ class Consultation implements \JsonSerializable
     public bool $forceLogin = false;
     public bool $managedUserAccounts = false;
     public bool $amendmentBookmarksWithNames = false;
+    public bool $amendmentConflictCheckEnabled = false;
     public bool $hasSpeechLists = false;
     public bool $speechRequiresLogin = false;
     public bool $allowMultipleTags = false;

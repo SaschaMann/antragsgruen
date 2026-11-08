@@ -1,6 +1,19 @@
 <?php
 
 return [
+    'conflicts_title' => 'Comprobar conflictos entre enmiendas',
+    'conflicts_enable' => 'Activar la comprobación de conflictos entre enmiendas',
+    'conflicts_intro' => 'Compare las enmiendas seleccionadas para preparar el orden del debate. Solo se comprueban los textos de las enmiendas, independientemente de las propuestas de procedimiento. Los conflictos de texto no determinan la incompatibilidad política ni el orden del debate.',
+    'conflicts_performance' => 'Seleccione como máximo 50 enmiendas por comprobación; use grupos más pequeños si los textos son largos o hay muchos conflictos. Los resultados grandes pueden tardar más en cargarse. Solo se pueden comprobar las enmiendas que tenga permiso para ver.',
+    'conflicts_too_many' => 'Seleccione como máximo 50 enmiendas a la vez.',
+    'conflicts_check' => 'Comprobar las enmiendas seleccionadas',
+    'conflicts_no_amendments' => 'No hay enmiendas disponibles para comprobar.',
+    'conflicts_select_two' => 'Seleccione al menos dos enmiendas.',
+    'conflicts_invalid' => 'La selección no es válida o ya no está disponible.',
+    'conflicts_results' => 'Resultados de la comprobación',
+    'conflicts_incomplete' => '%AMEND%: estas secciones no se pudieron comprobar por completo (contenido no compatible, texto de referencia incompatible o error de comparación): %SECTIONS%.',
+    'conflicts_none' => 'No se detectaron conflictos de texto en las secciones comprobadas.',
+    'conflicts_details' => 'Mostrar los fragmentos en conflicto',
     'Start a Motion' => 'Presentar una moción',
     'Edit Motion' => 'Editar moción',
     'Confirm Motion' => 'Confirmar moción',

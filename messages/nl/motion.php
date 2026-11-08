@@ -1,6 +1,19 @@
 <?php
 
 return [
+    'conflicts_title' => 'Conflicten tussen amendementen controleren',
+    'conflicts_enable' => 'Conflictcontrole voor amendementen inschakelen',
+    'conflicts_intro' => 'Vergelijk geselecteerde amendementen om de debatvolgorde voor te bereiden. Alleen de eigen teksten van de amendementen worden gecontroleerd, onafhankelijk van procedurevoorstellen. Tekstconflicten bepalen niet de politieke onverenigbaarheid of de debatvolgorde.',
+    'conflicts_performance' => 'Selecteer maximaal 50 amendementen per controle; kies kleinere groepen bij lange teksten of veel conflicten. Grote resultaten kunnen langer laden. Lezers kunnen alleen amendementen controleren die zij mogen zien.',
+    'conflicts_too_many' => 'Selecteer maximaal 50 amendementen tegelijk.',
+    'conflicts_check' => 'Geselecteerde amendementen controleren',
+    'conflicts_no_amendments' => 'Geen geschikte amendementen beschikbaar.',
+    'conflicts_select_two' => 'Selecteer ten minste twee amendementen.',
+    'conflicts_invalid' => 'De selectie is ongeldig of niet meer beschikbaar.',
+    'conflicts_results' => 'Resultaten van de conflictcontrole',
+    'conflicts_incomplete' => '%AMEND%: deze onderdelen konden niet volledig worden gecontroleerd (niet-ondersteunde inhoud, onverenigbare basistekst of een vergelijkingsfout): %SECTIONS%.',
+    'conflicts_none' => 'Geen tekstconflicten gevonden in de gecontroleerde onderdelen.',
+    'conflicts_details' => 'Conflicterende passages tonen',
     'Start a Motion' => 'Begin een voorstel',
     'Edit Motion' => 'Voorstel aanpassen',
     'Confirm Motion' => 'Voorstel bevestigen',

@@ -1,6 +1,19 @@
 <?php
 
 return [
+    'conflicts_title' => 'Comprova els conflictes entre esmenes',
+    'conflicts_enable' => 'Activa la comprovació de conflictes entre esmenes',
+    'conflicts_intro' => 'Compareu les esmenes seleccionades per preparar l’ordre del debat. Només es comproven els textos de les esmenes, independentment de les propostes de procediment. Els conflictes de text no determinen la incompatibilitat política ni l’ordre del debat.',
+    'conflicts_performance' => 'Seleccioneu com a màxim 50 esmenes per comprovació; feu grups més petits si els textos són llargs o hi ha molts conflictes. Els resultats grans poden trigar a carregar. Només es poden comprovar les esmenes que teniu permís per veure.',
+    'conflicts_too_many' => 'Seleccioneu com a màxim 50 esmenes alhora.',
+    'conflicts_check' => 'Comprova les esmenes seleccionades',
+    'conflicts_no_amendments' => 'No hi ha esmenes disponibles per comprovar.',
+    'conflicts_select_two' => 'Seleccioneu almenys dues esmenes.',
+    'conflicts_invalid' => 'La selecció no és vàlida o ja no està disponible.',
+    'conflicts_results' => 'Resultats de la comprovació',
+    'conflicts_incomplete' => '%AMEND%: aquestes seccions no s’han pogut comprovar completament (contingut no admès, text de referència incompatible o error de comparació): %SECTIONS%.',
+    'conflicts_none' => 'No s’han detectat conflictes de text a les seccions comprovades.',
+    'conflicts_details' => 'Mostra els fragments en conflicte',
 	'Start a Motion' => 'Començar una resolució',
 	'Edit Motion' => 'Editar resolució',
 	'Confirm Motion' => 'Confirmar resolució',

@@ -1,6 +1,19 @@
 <?php
 
 return [
+    'conflicts_title' => 'Provjeri sukobe između amandmana',
+    'conflicts_enable' => 'Omogući provjeru sukoba između amandmana',
+    'conflicts_intro' => 'Uporedite odabrane amandmane radi pripreme redosljeda rasprave. Provjeravaju se samo tekstovi amandmana, nezavisno od predloženih procedura. Sukobi u tekstu ne određuju političku nespojivost niti redosljed rasprave.',
+    'conflicts_performance' => 'Odaberite najviše 50 amandmana po provjeri; kod dugih tekstova ili mnogo sukoba koristite manje grupe. Veliki rezultati mogu se duže učitavati. Možete provjeravati samo amandmane koje imate pravo da vidite.',
+    'conflicts_too_many' => 'Odaberite najviše 50 amandmana odjednom.',
+    'conflicts_check' => 'Provjeri odabrane amandmane',
+    'conflicts_no_amendments' => 'Nema dostupnih amandmana za provjeru.',
+    'conflicts_select_two' => 'Odaberite najmanje dva amandmana.',
+    'conflicts_invalid' => 'Odabir nije ispravan ili više nije dostupan.',
+    'conflicts_results' => 'Rezultati provjere sukoba',
+    'conflicts_incomplete' => '%AMEND%: ovi odjeljci nijesu mogli biti potpuno provjereni (nepodržan sadržaj, nekompatibilan izvorni tekst ili greška pri poređenju): %SECTIONS%.',
+    'conflicts_none' => 'U provjerenim odjeljcima nijesu pronađeni sukobi u tekstu.',
+    'conflicts_details' => 'Prikaži sukobljene djelove teksta',
     'Start a Motion' => 'Pokrenite predlog', // Original: Start a motion
     'Edit Motion' => 'Uređivanje predloga', // Original: Edit motion
     'Confirm Motion' => 'Potvrdite predlog', // Original: Confirm motion

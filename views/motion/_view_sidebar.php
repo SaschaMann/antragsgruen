@@ -63,6 +63,17 @@ if ($motion->getMyMotionType()->hasPdfLayout() && $motion->isVisible()) {
     $sidebarRows++;
 }
 
+if ($motion->getMyConsultation()->getSettings()->amendmentConflictCheckEnabled && \app\components\diff\AmendmentConflictChecker::canRead($motion)) {
+    $conflictLi = '<li class="amendmentConflicts">' . Html::a(
+        '<span class="icon glyphicon glyphicon-transfer" aria-hidden="true"></span>' . Html::encode(Yii::t('motion', 'conflicts_title')),
+        UrlHelper::createMotionUrl($motion, 'amendment-conflicts'),
+        ['rel' => 'nofollow']
+    ) . '</li>';
+    $html .= $conflictLi;
+    $menusHtmlSmall[] = $conflictLi;
+    $sidebarRows++;
+}
+
 if ($motion->canMergeAmendments()) {
     $mergeLi = '<li class="mergeamendments">';
     $title   = (count($motion->getVisibleAmendments(false)) > 0 ? 'amendments_merge' : 'amendments_merge_noamend');

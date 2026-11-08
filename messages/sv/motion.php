@@ -1,6 +1,19 @@
 <?php
 
 return [
+    'conflicts_title' => 'Kontrollera konflikter mellan ändringsförslag',
+    'conflicts_enable' => 'Aktivera konfliktkontroll för ändringsförslag',
+    'conflicts_intro' => 'Jämför valda ändringsförslag för att förbereda debattordningen. Endast ändringsförslagens egna texter kontrolleras, oberoende av förslag till hantering. Textkonflikter avgör varken politisk oförenlighet eller debattordningen.',
+    'conflicts_performance' => 'Välj högst 50 ändringsförslag per kontroll; använd mindre grupper vid långa texter eller många konflikter. Stora resultat kan ta längre tid att ladda. Läsare kan bara kontrollera ändringsförslag som de har rätt att se.',
+    'conflicts_too_many' => 'Välj högst 50 ändringsförslag åt gången.',
+    'conflicts_check' => 'Kontrollera valda ändringsförslag',
+    'conflicts_no_amendments' => 'Inga ändringsförslag är tillgängliga för kontroll.',
+    'conflicts_select_two' => 'Välj minst två ändringsförslag.',
+    'conflicts_invalid' => 'Urvalet är ogiltigt eller inte längre tillgängligt.',
+    'conflicts_results' => 'Resultat av konfliktkontrollen',
+    'conflicts_incomplete' => '%AMEND%: dessa avsnitt kunde inte kontrolleras fullständigt (innehåll som inte stöds, oförenlig grundtext eller jämförelsefel): %SECTIONS%.',
+    'conflicts_none' => 'Inga textkonflikter hittades i de kontrollerade avsnitten.',
+    'conflicts_details' => 'Visa textavsnitt i konflikt',
     'Start a Motion' => 'Starta en motion',
     'Edit Motion' => 'Redigera motion',
     'Confirm Motion' => 'Bekräfta motion',

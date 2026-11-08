@@ -1,6 +1,19 @@
 <?php
 
 return [
+    'conflicts_title' => 'Vérifier les conflits entre amendements',
+    'conflicts_enable' => 'Activer la vérification des conflits entre amendements',
+    'conflicts_intro' => 'Comparez les amendements sélectionnés pour préparer l’ordre des débats. Seuls les textes des amendements sont vérifiés, indépendamment des procédures proposées. Les conflits de texte ne déterminent ni l’incompatibilité politique ni l’ordre des débats.',
+    'conflicts_performance' => 'Sélectionnez au plus 50 amendements par vérification; utilisez des groupes plus petits si les textes sont longs ou les conflits nombreux. Les grands résultats peuvent prendre du temps à charger. Seuls les amendements que vous êtes autorisé à voir peuvent être vérifiés.',
+    'conflicts_too_many' => 'Sélectionnez au maximum 50 amendements à la fois.',
+    'conflicts_check' => 'Vérifier les amendements sélectionnés',
+    'conflicts_no_amendments' => 'Aucun amendement admissible disponible.',
+    'conflicts_select_two' => 'Sélectionnez au moins deux amendements.',
+    'conflicts_invalid' => 'La sélection est invalide ou n’est plus disponible.',
+    'conflicts_results' => 'Résultats de la vérification',
+    'conflicts_incomplete' => '%AMEND% : ces sections n’ont pas pu être entièrement vérifiées (contenu non pris en charge, texte de référence incompatible ou erreur de comparaison) : %SECTIONS%.',
+    'conflicts_none' => 'Aucun conflit de texte détecté dans les sections vérifiées.',
+    'conflicts_details' => 'Afficher les passages en conflit',
     'Start a Motion'                => 'Commencer une motion',
     'Edit Motion'                   => 'Modifier la motion',
     'Confirm Motion'                => 'Confirmer la motion',
