@@ -96,7 +96,7 @@ class MotionController extends Base
             return new HtmlErrorResponse(404, \Yii::t('motion', 'err_not_found'));
         }
         $motion = $this->getMotionWithCheck($motionSlug);
-        if (!AmendmentConflictChecker::canRead($motion)) {
+        if (!AmendmentConflictChecker::canUse($motion)) {
             return new HtmlErrorResponse(404, \Yii::t('motion', 'err_not_found'));
         }
         $this->motion = $motion;

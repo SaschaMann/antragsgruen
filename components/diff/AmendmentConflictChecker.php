@@ -13,6 +13,15 @@ final class AmendmentConflictChecker
 {
     public const MAX_SELECTED = 50;
 
+    public static function canUse(Motion $motion): bool
+    {
+        return self::canRead($motion) && User::havePrivilege(
+            $motion->getMyConsultation(),
+            Privileges::PRIVILEGE_MOTION_STATUS_EDIT,
+            PrivilegeQueryContext::motion($motion)
+        );
+    }
+
     public static function canRead(IMotion $item): bool
     {
         if (!$item->isReadable()) {

@@ -4,7 +4,7 @@ return [
     'conflicts_title' => 'Kontrollera konflikter mellan ändringsförslag',
     'conflicts_enable' => 'Aktivera konfliktkontroll för ändringsförslag',
     'conflicts_intro' => 'Jämför valda ändringsförslag för att förbereda debattordningen. Endast ändringsförslagens egna texter kontrolleras, oberoende av förslag till hantering. Textkonflikter avgör varken politisk oförenlighet eller debattordningen.',
-    'conflicts_performance' => 'Välj högst 50 ändringsförslag per kontroll; använd mindre grupper vid långa texter eller många konflikter. Stora resultat kan ta längre tid att ladda. Läsare kan bara kontrollera ändringsförslag som de har rätt att se.',
+    'conflicts_performance' => 'Välj högst 50 ändringsförslag per kontroll; använd mindre grupper vid långa texter eller många konflikter. Stora resultat kan ta längre tid att ladda. Endast administratörer som får ändra motionens status kan använda kontrollen; de ser bara ändringsförslag som de har rätt att se.',
     'conflicts_too_many' => 'Välj högst 50 ändringsförslag åt gången.',
     'conflicts_check' => 'Kontrollera valda ändringsförslag',
     'conflicts_no_amendments' => 'Inga ändringsförslag är tillgängliga för kontroll.',

@@ -4,7 +4,7 @@ return [
     'conflicts_title' => 'Provjeri sukobe između amandmana',
     'conflicts_enable' => 'Omogući provjeru sukoba između amandmana',
     'conflicts_intro' => 'Uporedite odabrane amandmane radi pripreme redosljeda rasprave. Provjeravaju se samo tekstovi amandmana, nezavisno od predloženih procedura. Sukobi u tekstu ne određuju političku nespojivost niti redosljed rasprave.',
-    'conflicts_performance' => 'Odaberite najviše 50 amandmana po provjeri; kod dugih tekstova ili mnogo sukoba koristite manje grupe. Veliki rezultati mogu se duže učitavati. Možete provjeravati samo amandmane koje imate pravo da vidite.',
+    'conflicts_performance' => 'Odaberite najviše 50 amandmana po provjeri; kod dugih tekstova ili mnogo sukoba koristite manje grupe. Veliki rezultati mogu se duže učitavati. Provjeru mogu koristiti samo administratori koji smiju mijenjati status ovog predloga; vide samo amandmane za koje imaju dozvolu.',
     'conflicts_too_many' => 'Odaberite najviše 50 amandmana odjednom.',
     'conflicts_check' => 'Provjeri odabrane amandmane',
     'conflicts_no_amendments' => 'Nema dostupnih amandmana za provjeru.',

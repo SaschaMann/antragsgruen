@@ -4,7 +4,7 @@ return [
     'conflicts_title' => 'Conflicten tussen amendementen controleren',
     'conflicts_enable' => 'Conflictcontrole voor amendementen inschakelen',
     'conflicts_intro' => 'Vergelijk geselecteerde amendementen om de debatvolgorde voor te bereiden. Alleen de eigen teksten van de amendementen worden gecontroleerd, onafhankelijk van procedurevoorstellen. Tekstconflicten bepalen niet de politieke onverenigbaarheid of de debatvolgorde.',
-    'conflicts_performance' => 'Selecteer maximaal 50 amendementen per controle; kies kleinere groepen bij lange teksten of veel conflicten. Grote resultaten kunnen langer laden. Lezers kunnen alleen amendementen controleren die zij mogen zien.',
+    'conflicts_performance' => 'Selecteer maximaal 50 amendementen per controle; kies kleinere groepen bij lange teksten of veel conflicten. Grote resultaten kunnen langer laden. Alleen beheerders die de status van deze motie mogen wijzigen kunnen de controle gebruiken; zij zien alleen toegestane amendementen.',
     'conflicts_too_many' => 'Selecteer maximaal 50 amendementen tegelijk.',
     'conflicts_check' => 'Geselecteerde amendementen controleren',
     'conflicts_no_amendments' => 'Geen geschikte amendementen beschikbaar.',

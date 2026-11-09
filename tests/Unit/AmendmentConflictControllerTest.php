@@ -100,19 +100,45 @@ final class AmendmentConflictControllerTest extends Unit
         return $this->controller->actionAmendmentConflicts('motion-1');
     }
 
+    private function logInAsMotionAdmin(): void
+    {
+        $user = $this->getMockBuilder(User::class)->onlyMethods(['hasPrivilege'])->getMock();
+        $user->method('hasPrivilege')->willReturnCallback(
+            static fn ($consultation, $privilege, $context) => $privilege === Privileges::PRIVILEGE_MOTION_STATUS_EDIT && $context !== null
+        );
+        \Yii::$app->user->setIdentity($user);
+    }
+
     public function testDisabledGetAndPostAndConsultationIsolation(): void
     {
         $this->settings->amendmentConflictCheckEnabled = false;
         self::assertInstanceOf(HtmlErrorResponse::class, $this->controller->actionAmendmentConflicts('motion-1'));
         self::assertInstanceOf(HtmlErrorResponse::class, $this->post(['1', '2']));
+        $this->logInAsMotionAdmin();
         $this->settings->amendmentConflictCheckEnabled = true;
         self::assertInstanceOf(HtmlResponse::class, $this->post(['1', '2']));
         $this->settings->amendmentConflictCheckEnabled = false;
         self::assertInstanceOf(HtmlErrorResponse::class, $this->post(['1', '2']));
     }
 
-    public function testGuestCanSelectAndSeeConflictsWithoutProcedures(): void
+    public function testGuestAndReadOnlyAdminCannotUseChecker(): void
     {
+        self::assertFalse(AmendmentConflictChecker::canUse($this->motion));
+        self::assertInstanceOf(HtmlErrorResponse::class, $this->controller->actionAmendmentConflicts('motion-1'));
+        self::assertInstanceOf(HtmlErrorResponse::class, $this->post(['1', '2']));
+
+        $user = $this->getMockBuilder(User::class)->onlyMethods(['hasPrivilege'])->getMock();
+        $user->method('hasPrivilege')->willReturnCallback(
+            static fn ($consultation, $privilege, $context) => $privilege === Privileges::PRIVILEGE_MOTION_SEE_UNPUBLISHED
+        );
+        \Yii::$app->user->setIdentity($user);
+        self::assertFalse(AmendmentConflictChecker::canUse($this->motion));
+        self::assertInstanceOf(HtmlErrorResponse::class, $this->post(['1', '2']));
+    }
+
+    public function testMotionAdminCanSelectAndSeeConflictsWithoutProcedures(): void
+    {
+        $this->logInAsMotionAdmin();
         $get = $this->controller->actionAmendmentConflicts('motion-1');
         self::assertInstanceOf(HtmlResponse::class, $get);
         self::assertStringContainsString('checked', $get->getHtml());
@@ -129,11 +155,12 @@ final class AmendmentConflictControllerTest extends Unit
 
     public function testInvalidHiddenAndForeignSelectionsAreRejected(): void
     {
+        $this->logInAsMotionAdmin();
         foreach (['1', [['1']], ['1', '999'], ['1', '-2']] as $ids) {
             self::assertInstanceOf(HtmlErrorResponse::class, $this->post($ids));
         }
         $hidden = $this->motion->amendments[1];
-        $hidden->status = Amendment::STATUS_SUBMITTED_UNSCREENED;
+        $hidden->status = Amendment::STATUS_DRAFT;
         self::assertInstanceOf(HtmlErrorResponse::class, $this->post(['1', '2']));
         $hidden->status = Amendment::STATUS_SUBMITTED_SCREENED;
         $hidden->motionId = 99;
@@ -157,6 +184,7 @@ final class AmendmentConflictControllerTest extends Unit
 
     public function testSelectionLimitReturnsVisibleMessage(): void
     {
+        $this->logInAsMotionAdmin();
         $more = $this->motion->amendments;
         for ($id = 3; $id <= AmendmentConflictChecker::MAX_SELECTED + 1; $id++) {
             $more[] = $this->amendment($id, 'replacement ' . $id);
@@ -173,7 +201,7 @@ final class AmendmentConflictControllerTest extends Unit
         $hidden = $this->motion->amendments[1];
         $hidden->status = Amendment::STATUS_SUBMITTED_UNSCREENED;
         $user = $this->getMockBuilder(User::class)->onlyMethods(['hasPrivilege'])->getMock();
-        $user->method('hasPrivilege')->willReturnCallback(static fn ($consultation, $privilege, $context) => $privilege === Privileges::PRIVILEGE_MOTION_SEE_UNPUBLISHED && $context !== null);
+        $user->method('hasPrivilege')->willReturnCallback(static fn ($consultation, $privilege, $context) => in_array($privilege, [Privileges::PRIVILEGE_MOTION_STATUS_EDIT, Privileges::PRIVILEGE_MOTION_SEE_UNPUBLISHED], true) && $context !== null);
         \Yii::$app->user->setIdentity($user);
         self::assertCount(2, AmendmentConflictChecker::eligibleAmendments($this->motion));
         self::assertInstanceOf(HtmlResponse::class, $this->post(['1', '2']));
@@ -181,9 +209,10 @@ final class AmendmentConflictControllerTest extends Unit
 
     public function testEmptySelectionAndUnreadableMotion(): void
     {
+        $this->logInAsMotionAdmin();
         self::assertStringContainsString('Select at least two', $this->post([])->getHtml());
         self::assertStringContainsString('Select at least two', $this->post(['1'])->getHtml());
-        $this->motion->status = Motion::STATUS_SUBMITTED_UNSCREENED;
+        $this->motion->status = Motion::STATUS_DRAFT;
         self::assertInstanceOf(HtmlErrorResponse::class, $this->post(['1', '2']));
     }
 }

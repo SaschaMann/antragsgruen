@@ -4,7 +4,7 @@ return [
     'conflicts_title' => 'Check amendment conflicts',
     'conflicts_enable' => 'Enable amendment conflict checker',
     'conflicts_intro' => 'Compare selected amendments to prepare the debate order. Only the amendments’ own texts are checked, independently of proposed procedures. Text conflicts do not determine political incompatibility or the debate order.',
-    'conflicts_performance' => 'Select at most 50 amendments for one check; try smaller groups if the text is long or conflicts are dense. Large results can take longer to load. Readers can only check amendments they are permitted to see.',
+    'conflicts_performance' => 'Select at most 50 amendments for one check; try smaller groups if the text is long or conflicts are dense. Large results can take longer to load. Only administrators who can edit this motion’s status may use the checker; they can check only amendments they may see.',
     'conflicts_too_many' => 'Select no more than 50 amendments at a time.',
     'conflicts_check' => 'Check selected amendments',
     'conflicts_no_amendments' => 'No eligible amendments are available.',

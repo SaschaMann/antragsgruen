@@ -4,7 +4,7 @@ return [
     'conflicts_title' => 'Änderungsanträge auf Konflikte prüfen',
     'conflicts_enable' => 'Konfliktprüfung für Änderungsanträge aktivieren',
     'conflicts_intro' => 'Ausgewählte Änderungsanträge vergleichen, um die Debattenreihenfolge vorzubereiten. Geprüft werden nur die eigenen Texte der Änderungsanträge, unabhängig von Verfahrensvorschlägen. Textkonflikte bestimmen weder politische Unvereinbarkeit noch die Debattenreihenfolge.',
-    'conflicts_performance' => 'Pro Prüfung höchstens 50 Änderungsanträge auswählen; bei langen Texten oder vielen Konflikten kleinere Gruppen bilden. Große Ergebnisse können länger zum Laden brauchen. Lesende können nur Änderungsanträge prüfen, die sie sehen dürfen.',
+    'conflicts_performance' => 'Pro Prüfung höchstens 50 Änderungsanträge auswählen; bei langen Texten oder vielen Konflikten kleinere Gruppen bilden. Große Ergebnisse können länger zum Laden brauchen. Nur Administrierende, die den Status dieses Antrags bearbeiten dürfen, können die Prüfung nutzen; sie sehen nur berechtigte Änderungsanträge.',
     'conflicts_too_many' => 'Bitte höchstens 50 Änderungsanträge gleichzeitig auswählen.',
     'conflicts_check' => 'Ausgewählte Änderungsanträge prüfen',
     'conflicts_no_amendments' => 'Keine geeigneten Änderungsanträge verfügbar.',

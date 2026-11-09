@@ -1,6 +1,6 @@
 # Amendment conflict checker performance
 
-The consultation setting is opt-in. A request compares at most 50 selected direct amendments to one motion. This bound follows benchmarks of the actual comparison service and results partial. Each pair is checked in both directions using the same word-level merge rules as amendment rewriting. A single request prepares each amendment diff once, then reuses it for pair comparisons.
+The consultation setting is opt-in. Only users with the motion status-edit privilege can open or run the checker. A request compares at most 50 selected direct amendments to one motion. This bound follows benchmarks of the actual comparison service and results partial. Each pair is checked in both directions using the same word-level merge rules as amendment rewriting. A single request prepares each amendment diff once, then reuses it for pair comparisons.
 
 To reproduce: install locked Composer dependencies, then run `php -d memory_limit=512M bin/benchmark-amendment-conflicts.php COUNT PARAGRAPHS sparse|dense 3`. The fixture changes one paragraph per amendment in sparse mode, or ten paragraphs in dense mode. The benchmark reports fixture construction, comparison, result rendering, response bytes, peak memory, and cold/warm timings separately. Run each workload in a new PHP process. It does not measure database access, HTTP transport, or browser rendering. The numbers below were measured in an isolated PHP 8.3.36 container on this workspace host; production hardware and text will vary.
 
